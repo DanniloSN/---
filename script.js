@@ -54,17 +54,43 @@ let hiragana = [
   { romanji: 'wa', symbol: 'わ' },
   { romanji: 'wo', symbol: 'を' },
   // N
-  { romanji: 'n', symbol: 'ん' }
+  { romanji: 'n', symbol: 'ん' },
+  // P
+  { romanji: 'pa', symbol: 'ぱ' },
+  { romanji: 'pi', symbol: 'ぴ' },
+  { romanji: 'pu', symbol: 'ぷ' },
+  { romanji: 'pe', symbol: 'ぺ' },
+  { romanji: 'po', symbol: 'ぽ' },
+  // G
+  { romanji: 'ga', symbol: 'が' },
+  { romanji: 'gi', symbol: 'ぎ' },
+  { romanji: 'gu', symbol: 'ぐ' },
+  { romanji: 'ge', symbol: 'げ' },
+  { romanji: 'go', symbol: 'ご' },
+  // B
+  { romanji: 'ba', symbol: 'ば' },
+  { romanji: 'bi', symbol: 'び' },
+  { romanji: 'bu', symbol: 'ぶ' },
+  { romanji: 'be', symbol: 'べ' },
+  { romanji: 'bo', symbol: 'ぼ' },
+  // Z
+  { romanji: 'za', symbol: 'ざ' },
+  { romanji: 'zi', symbol: 'じ' },
+  { romanji: 'zu', symbol: 'ず' },
+  { romanji: 'ze', symbol: 'ぜ' },
+  { romanji: 'zo', symbol: 'ぞ' },
+  // D
+  { romanji: 'da', symbol: 'だ' },
+  { romanji: 'di', symbol: 'ぢ' },
+  { romanji: 'du', symbol: 'づ' },
+  { romanji: 'de', symbol: 'で' },
+  { romanji: 'do', symbol: 'ど' },
 ]
 
 let actualHiragana = null
 
 function randomNumber(toNumber) {
   return Math.floor(Math.random() * toNumber)
-}
-
-function updateHtml() {
-  
 }
 
 function generateNewRandomHiragana() {
