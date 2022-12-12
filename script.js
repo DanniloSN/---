@@ -96,6 +96,7 @@ function randomNumber(toNumber) {
 function generateNewRandomHiragana() {
   const index = randomNumber(hiragana.length)
   actualHiragana = Object.assign(hiragana[index])
+  hiragana.splice(index, 1)
   document.getElementById('hiragana-label').innerHTML = actualHiragana.romanji
   document.getElementById('hiragana-input').value = ''
 }
