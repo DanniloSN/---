@@ -88,6 +88,7 @@ let hiragana = [
 ]
 
 let actualHiragana = null
+let score = 0
 
 function randomNumber(toNumber) {
   return Math.floor(Math.random() * toNumber)
@@ -101,10 +102,17 @@ function generateNewRandomHiragana() {
   document.getElementById('hiragana-input').value = ''
 }
 
+function reset() {
+  localStorage.setItem('score', score)
+  window.location.reload()
+}
+
 document.getElementById('hiragana-form').addEventListener('submit', event => {
   event.preventDefault()
   const inputValue = document.getElementById('hiragana-input').value
-  if (inputValue == actualHiragana.symbol) generateNewRandomHiragana()
+  if (inputValue == actualHiragana.symbol) score += 1
+  if (hiragana.length == 0) return reset()
+  generateNewRandomHiragana()
 })
 
 generateNewRandomHiragana()
