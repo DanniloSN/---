@@ -31,7 +31,7 @@ let hiragana = [
   // H
   { romanji: 'ha', symbol: 'は' },
   { romanji: 'hi', symbol: 'ひ' },
-  { romanji: 'hu', symbol: 'ふ' },
+  { romanji: 'fu', symbol: 'ふ' },
   { romanji: 'he', symbol: 'へ' },
   { romanji: 'ho', symbol: 'ほ' },
   // M
