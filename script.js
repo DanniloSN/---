@@ -63,10 +63,6 @@ function randomNumber(toNumber) {
   return Math.floor(Math.random() * toNumber)
 }
 
-function updateHtml() {
-  
-}
-
 function generateNewRandomHiragana() {
   const index = randomNumber(hiragana.length)
   actualHiragana = Object.assign(hiragana[index])
