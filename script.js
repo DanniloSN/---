@@ -1,4 +1,4 @@
-let hiragana = [
+const hiragana = [
   { romanji: 'a', symbol: 'あ' },
   { romanji: 'i', symbol: 'い' },
   { romanji: 'u', symbol: 'う' },
@@ -87,7 +87,7 @@ let hiragana = [
   { romanji: 'do', symbol: 'ど' },
 ]
 
-let katakana = [
+const katakana = [
   { romanji: 'a', symbol: 'ア' },
   { romanji: 'i', symbol: 'イ' },
   { romanji: 'u', symbol: 'ウ' },
@@ -176,19 +176,28 @@ let katakana = [
   { romanji: 'do', symbol: 'ド' },
 ]
 
-let actualHiragana = null
+let kanaList = []
+let actualKanaType = 'hiragana'
+let actualKana = null
 let score = 0
+
+const symbolLabel = document.getElementById('symbol-label')
+const symbolInput = document.getElementById('symbol-input')
+const symbolForm = document.getElementById('symbol-form')
+const symbolCount = document.getElementById('symbol-count')
+const symbolSwitch = document.getElementById('symbol-switch')
 
 function randomNumber(toNumber) {
   return Math.floor(Math.random() * toNumber)
 }
 
-function generateNewRandomHiragana() {
-  const index = randomNumber(hiragana.length)
-  actualHiragana = Object.assign(hiragana[index])
-  hiragana.splice(index, 1)
-  document.getElementById('hiragana-label').innerHTML = actualHiragana.romanji
-  document.getElementById('hiragana-input').value = ''
+function generateNewRandomKana() {
+  const index = randomNumber(kanaList.length)
+  actualKana = Object.assign(kanaList[index])
+  kanaList.splice(index, 1)
+  symbolCount.innerHTML = (71 - kanaList.length)
+  symbolLabel.innerHTML = actualKana.romanji
+  symbolInput.value = ''
 }
 
 function reset() {
@@ -196,12 +205,30 @@ function reset() {
   window.location.reload()
 }
 
-document.getElementById('hiragana-form').addEventListener('submit', event => {
+function start(type) {
+  score = 0
+  actualKanaType = type
+  if (type == 'hiragana') kanaList = Object.assign([], hiragana)
+  else kanaList = Object.assign([], katakana)
+  generateNewRandomKana()
+}
+
+symbolForm.addEventListener('submit', event => {
   event.preventDefault()
-  const inputValue = document.getElementById('hiragana-input').value
-  if (inputValue == actualHiragana.symbol) score += 1
-  if (hiragana.length == 0) return reset()
-  generateNewRandomHiragana()
+  const inputValue = symbolInput.value
+  if (inputValue == actualKana.symbol) score += 1
+  if (kanaList.length == 0) {
+    alert(`Your score: ${score}`)
+    return reset()
+  }
+  generateNewRandomKana()
 })
 
-generateNewRandomHiragana()
+symbolSwitch.addEventListener('change', event => {
+  event.preventDefault()
+  const inputValue = symbolSwitch.checked
+  if (inputValue) start('katakana')
+  else start('hiragana')
+})
+
+start(actualKanaType)
