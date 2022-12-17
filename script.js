@@ -216,12 +216,19 @@ function start(type) {
 symbolForm.addEventListener('submit', event => {
   event.preventDefault()
   const inputValue = symbolInput.value
-  if (inputValue == actualKana.symbol) score += 1
+  if (inputValue == actualKana.symbol) {
+    symbolInput.style.animationName = 'right-answer'
+    score += 1
+  } else symbolInput.style.animationName = 'wrong-answer'
   if (kanaList.length == 0) {
     alert(`Your score: ${score}`)
     return reset()
   }
   generateNewRandomKana()
+})
+
+symbolInput.addEventListener('animationend', () => {
+  symbolInput.style.animationName = ''
 })
 
 symbolSwitch.addEventListener('change', event => {

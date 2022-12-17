@@ -34,6 +34,32 @@ body {
   text-align: center;
   font-size: 3rem;
   border-radius: 5px;
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  direction: forwards;
+}
+
+@keyframes right-answer {
+  0% {
+    transform: scale(1.05);
+    background-color: rgb(185, 255, 185);
+    border-color: green;
+  }
+}
+
+@keyframes wrong-answer {
+  0% {
+    transform: translateX(-5px);
+    background-color: rgb(255, 185, 185);
+    border-color: red;
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: none;
+  }
 }
 
 .switch-container {
