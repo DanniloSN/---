@@ -32,7 +32,7 @@ const hiragana = [
   { romanji: 'ha', symbol: 'は' },
   { romanji: 'hi', symbol: 'ひ' },
   { romanji: 'fu', symbol: 'ふ' },
-  { romanji: 'he', symbol: 'へ' },
+  { romanji: 'he', symbol: 'へ|ヘ' },
   { romanji: 'ho', symbol: 'ほ' },
   // M
   { romanji: 'ma', symbol: 'ま' },
@@ -41,9 +41,9 @@ const hiragana = [
   { romanji: 'me', symbol: 'め' },
   { romanji: 'mo', symbol: 'も' },
   // Y
-  { romanji: 'ya', symbol: 'や' },
-  { romanji: 'yu', symbol: 'ゆ' },
-  { romanji: 'yo', symbol: 'よ' },
+  { romanji: 'ya', symbol: 'や|ゃ' },
+  { romanji: 'yu', symbol: 'ゆ|ゅ' },
+  { romanji: 'yo', symbol: 'よ|ょ' },
   // R
   { romanji: 'ra', symbol: 'ら' },
   { romanji: 'ri', symbol: 'り' },
@@ -59,7 +59,7 @@ const hiragana = [
   { romanji: 'pa', symbol: 'ぱ' },
   { romanji: 'pi', symbol: 'ぴ' },
   { romanji: 'pu', symbol: 'ぷ' },
-  { romanji: 'pe', symbol: 'ぺ' },
+  { romanji: 'pe', symbol: 'ぺ|ペ' },
   { romanji: 'po', symbol: 'ぽ' },
   // G
   { romanji: 'ga', symbol: 'が' },
@@ -71,7 +71,7 @@ const hiragana = [
   { romanji: 'ba', symbol: 'ば' },
   { romanji: 'bi', symbol: 'び' },
   { romanji: 'bu', symbol: 'ぶ' },
-  { romanji: 'be', symbol: 'べ' },
+  { romanji: 'be', symbol: 'べ|ベ' },
   { romanji: 'bo', symbol: 'ぼ' },
   // Z
   { romanji: 'za', symbol: 'ざ' },
@@ -121,7 +121,7 @@ const katakana = [
   { romanji: 'ha', symbol: 'ハ' },
   { romanji: 'hi', symbol: 'ヒ' },
   { romanji: 'fu', symbol: 'フ' },
-  { romanji: 'he', symbol: 'ヘ' },
+  { romanji: 'he', symbol: 'ヘ|へ' },
   { romanji: 'ho', symbol: 'ホ' },
   // M
   { romanji: 'ma', symbol: 'マ' },
@@ -130,9 +130,9 @@ const katakana = [
   { romanji: 'me', symbol: 'メ' },
   { romanji: 'mo', symbol: 'モ' },
   // Y
-  { romanji: 'ya', symbol: 'ヤ' },
-  { romanji: 'yu', symbol: 'ユ' },
-  { romanji: 'yo', symbol: 'ヨ' },
+  { romanji: 'ya', symbol: 'ヤ|ャ' },
+  { romanji: 'yu', symbol: 'ユ|ュ' },
+  { romanji: 'yo', symbol: 'ヨ|ョ' },
   // R
   { romanji: 'ra', symbol: 'ラ' },
   { romanji: 'ri', symbol: 'リ' },
@@ -148,7 +148,7 @@ const katakana = [
   { romanji: 'pa', symbol: 'パ' },
   { romanji: 'pi', symbol: 'ピ' },
   { romanji: 'pu', symbol: 'プ' },
-  { romanji: 'pe', symbol: 'ペ' },
+  { romanji: 'pe', symbol: 'ペ|ぺ' },
   { romanji: 'po', symbol: 'ポ' },
   // G
   { romanji: 'ga', symbol: 'ガ' },
@@ -160,7 +160,7 @@ const katakana = [
   { romanji: 'ba', symbol: 'バ' },
   { romanji: 'bi', symbol: 'ビ' },
   { romanji: 'bu', symbol: 'ブ' },
-  { romanji: 'be', symbol: 'ベ' },
+  { romanji: 'be', symbol: 'ベ|べ' },
   { romanji: 'bo', symbol: 'ボ' },
   // Z
   { romanji: 'za', symbol: 'ザ' },
@@ -216,7 +216,7 @@ function start(type) {
 symbolForm.addEventListener('submit', event => {
   event.preventDefault()
   const inputValue = symbolInput.value
-  if (inputValue == actualKana.symbol) {
+  if (inputValue.trim().match(actualKana.symbol)) {
     symbolInput.style.animationName = 'right-answer'
     score += 1
   } else symbolInput.style.animationName = 'wrong-answer'
