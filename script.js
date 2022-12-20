@@ -19,7 +19,7 @@ const hiragana = [
   // T
   { romanji: 'ta', symbol: 'た' },
   { romanji: 'chi', symbol: 'ち' },
-  { romanji: 'tsu', symbol: 'つっ' },
+  { romanji: 'tsu', symbol: 'つ|っ' },
   { romanji: 'te', symbol: 'て' },
   { romanji: 'to', symbol: 'と' },
   // N
@@ -108,7 +108,7 @@ const katakana = [
   // T
   { romanji: 'ta', symbol: 'タ' },
   { romanji: 'chi', symbol: 'チ' },
-  { romanji: 'tsu', symbol: 'ツッ' },
+  { romanji: 'tsu', symbol: 'ツ|ッ' },
   { romanji: 'te', symbol: 'テ' },
   { romanji: 'to', symbol: 'ト' },
   // N
