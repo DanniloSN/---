@@ -221,7 +221,8 @@ symbolForm.addEventListener('submit', event => {
     score += 1
   } else symbolInput.style.animationName = 'wrong-answer'
   if (kanaList.length == 0) {
-    alert(`Your score: ${score}`)
+    const percent = score / 71 * 100
+    alert(`Your score: ${score} (${percent}%)`)
     return reset()
   }
   generateNewRandomKana()
