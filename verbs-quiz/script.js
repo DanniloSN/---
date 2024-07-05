@@ -69,7 +69,7 @@ function generateNewRandomVerb() {
   ];
   verbList.splice(index, 1);
   verbCount.innerHTML = godanVerbs.length - verbList.length;
-  verbLabel.innerHTML = actualVerb.kanji;
+  verbLabel.innerHTML = `${actualVerb.kanji} (${actualVerb.reading}) - ${actualVerb.meaning}`;
   verbInput.value = "";
 }
 
