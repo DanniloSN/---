@@ -2,13 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Japanese Practice</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kana Quiz</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a href="kana-quiz/index.html">Kana Quiz</a>
+    <h1>Kana Quiz</h1>
     <br />
-    <a href="verbs-quiz/index.html">Verbs Quiz</a>
+    <div class="switch-container">
+      <span>Hiragana</span>
+      <label class="switch">
+        <input type="checkbox" id="symbol-switch" />
+        <span class="slider round"></span>
+      </label>
+      <span>Katakana</span>
+    </div>
+    <br />
+    <p>Write the <b id="symbol-label">#</b> symbol</p>
+    <p><span id="symbol-count">#</span> of <span>71</span></p>
+    <form id="symbol-form">
+      <input id="symbol-input" value="#" autofocus required />
+    </form>
+    <a
+      href="https://support.google.com/gboard/answer/9108773?hl=en&co=GENIE.Platform%3DAndroid"
+      target="blank"
+    >
+      Japanese Handwrite
+    </a>
+    <script src="script.js"></script>
   </body>
 </html>
